@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "rut": { "type": "string" },
+    "es_pasaporte": { "type": "integer" },
+    "tipo_documento": { "type": "integer" },
+    "nombre": { "type": "string" },
+    "nombre_social": { "type": "string" },
+    "apellidos": { "type": "string" },
+    "fecha_nacimiento": { "type": "string" },
+    "fecha_afiliacion": { "type": "string"},
+    "telefono": { "type": "string" },
+    "celular": { "type": "string" },
+    "ciudad": { "type": "string" },
+    "comuna": { "type": "string" },
+    "direccion": { "type": "string" },
+    "email": { "type": "string" },
+    "sexo": { "type": "string" },
+    "id_genero": { "type": "integer" },
+    "numero_ficha": { "type": "string" },
+    "observaciones": { "type": "string" },
+    "tiene_cargas": { "type": "integer" },
+    "es_carga": { "type": "integer" },
+    "fecha_deshabilitacion": { "type": "string" },
+    "habilitado": { "type": "integer" }
+  },
+  "additionalProperties": false
+}

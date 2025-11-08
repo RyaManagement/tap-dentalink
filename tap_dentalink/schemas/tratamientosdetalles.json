@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DetalleTratamiento",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "id_tratamiento": { "type": "integer" },
+    "id_prestacion": { "type": "integer" },
+    "nombre_prestacion": { "type": "string" },
+    "tipo_prestacion": { "type": "string" },
+    "id_usuario_creador": { "type": "integer" },
+    "nombre_creador": { "type": "string" },
+    "fecha_creacion": {
+      "type": "string"
+    },
+    "realizado": { "type": "integer" },
+    "liquidado": { "type": "integer" },
+    "id_dentista_realizador": { "type": "integer" },
+    "dentista_realizador": { "type": "string" },
+    "fecha_realizacion": {
+      "type": "string"
+    },
+    "precio": { "type": "number" },
+    "descuento_usuario": { "type": "number" },
+    "descuento_convenio": { "type": "number" },
+    "descuento_total": { "type": "number" },
+    "pagado": { "type": "number" },
+    "total": { "type": "number" },
+    "id_sucursal": { "type": "integer" },
+    "nombre_sucursal": { "type": "string" },
+    "id_paciente": { "type": "integer" },
+    "nombre_paciente": { "type": "string" },
+    "nombre_social_paciente": { "type": "string" }
+  },
+  "additionalProperties": false
+}
+

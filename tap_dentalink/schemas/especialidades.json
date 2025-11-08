@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Especialidad",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "nombre": { "type": "string" },
+    "id_tipo_sucursal": { "type": "integer" },
+    "habilitada": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

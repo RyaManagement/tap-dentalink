@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EncuestaResumen",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "nombre": { "type": "string" },
+    "suma_resultados": { "type": "integer" },
+    "cant_respuestas": { "type": "integer" },
+    "puntaje": { "type": "number" },
+    "detalles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "resultado": { "type": "integer" },
+          "cantidad": { "type": "integer" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

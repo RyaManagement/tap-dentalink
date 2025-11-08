@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EstadoCita",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "nombre": { "type": "string" },
+    "color": { "type": "string" },
+    "reservado": { "type": "integer" },
+    "anulacion": { "type": "integer" },
+    "uso_interno": { "type": "integer" },
+    "habilitado": { "type": "integer" }
+  },
+  "additionalProperties": false
+}

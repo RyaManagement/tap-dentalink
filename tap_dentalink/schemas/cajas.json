@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Caja",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "id_sucursal": { "type": "integer" },
+    "id_usuario_admin": { "type": "integer" },
+    "fecha_apertura": { "type": "string" },
+    "fecha_cierre": { "type": "string" },
+    "saldo_anterior": { "type": "number" },
+    "abono_inicial": { "type": "number" },
+    "saldo_inicial": { "type": "number" },
+    "gastos": { "type": "number" },
+    "acumulado": { "type": "number" },
+    "saldo_total": { "type": "number" },
+    "saldo_cierre": { "type": "number" },
+    "estado": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

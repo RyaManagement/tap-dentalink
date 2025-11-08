@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Prestacion",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "nombre": { "type": "string" },
+    "codigo": { "type": "string" },
+    "id_arancel": { "type": "integer" },
+    "nombre_arancel": { "type": "string" },
+    "id_categoria": { "type": "integer" },
+    "nombre_categoria": { "type": "string" },
+    "id_tipo": { "type": "integer" },
+    "tipo": { "type": "string" },
+    "precio": { "type": "integer" },
+    "habilitado": { "type": "integer" }
+  },
+  "additionalProperties": false
+}

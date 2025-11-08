@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MotivoAtencion",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "id_especialidad": { "type": "integer" },
+    "nombre_especialidad": { "type": "string" },
+    "id_motivo_atencion": { "type": "integer" },
+    "nombre_motivo_atencion": { "type": "string" },
+    "duracion": { "type": "integer" },
+    "color": { "type": "string" },
+    "agenda_online": { "type": "integer" },
+    "id_cups": { "type": "integer" },
+    "habilitado": { "type": "integer" }
+  },
+  "additionalProperties": false
+}
+

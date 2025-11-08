@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Categoria",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "nombre": { "type": "string" },
+    "id_tipo": { "type": "integer" },
+    "tipo": { "type": "string" },
+    "habilitado": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}
+

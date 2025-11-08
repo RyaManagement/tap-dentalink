@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tarea",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "detalle": { "type": "string" },
+    "vencimiento": {
+      "type": "string"
+    },
+    "estado": { "type": "integer"},
+    "mensaje": { "type": "string" },
+    "id_tipo_tarea": { "type": "integer" },
+    "tipo_tarea": { "type": "string" },
+    "id_referencia": { "type": "integer" },
+    "referencia": { "type": "string" },
+    "id_sucursal": { "type": "integer" },
+    "sucursal": { "type": "string" },
+    "id_creador": { "type": "integer" },
+    "creador": { "type": "string" },
+    "id_completador": { "type": "integer" },
+    "completador": { "type": "string" },
+    "id_paciente": { "type": "integer" },
+    "paciente": { "type": "string" },
+    "nombre_social_paciente": { "type": "string" },
+    "fecha_creacion": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "id_paciente": {
+      "type": "integer"
+    },
+    "nombre_paciente": {
+      "type": "string"
+    },
+    "hora_inicio": {
+      "type": "string"
+    },
+    "hora_fin": {
+      "type": "string"
+    },
+    "duracion": {
+      "type": "integer"
+    },
+    "id_dentista": {
+      "type": "integer"
+    },
+    "nombre_dentista": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "id_recurso": {
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

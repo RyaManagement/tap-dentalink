@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Liquidacion",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "id_dentista": { "type": "integer" },
+    "id_sucursal": { "type": "integer" },
+    "fecha_inicio": { "type": "string" },
+    "fecha_termino": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
+    "monto": { "type": "number" },
+    "activa": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}
+

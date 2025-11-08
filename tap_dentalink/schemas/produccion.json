@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TratamientoRealizado",
+  "type": "object",
+  "properties": {
+    "id_sucursal": { "type": "integer" },
+    "id_tratamiento": { "type": "integer" },
+    "nombre_tratamiento": { "type": "string" },
+    "id_detalle_tratamiento": { "type": "integer" },
+    "fecha_realizacion": { "type": "string" },
+    "id_prestacion": { "type": "integer" },
+    "codigo_prestacion": { "type": "string" },
+    "nombre_prestacion": { "type": "string" },
+    "id_dentista": { "type": "integer" },
+    "nombre_completo_dentista": { "type": "string" },
+    "id_paciente": { "type": "integer" },
+    "monto": { "type": "integer" }
+  },
+  "additionalProperties": false
+}
+

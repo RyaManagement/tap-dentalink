@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pago",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "id_pagador": { "type": "integer" },
+    "nombre_pagador": { "type": "string" },
+    "tipo_pagador": { "type": "string" },
+    "id_paciente": { "type": "integer" },
+    "nombre_paciente": { "type": "string" },
+    "nombre_social_paciente": { "type": "string" },
+    "monto_pago": { "type": "integer" },
+    "id_medio_pago": { "type": "integer" },
+    "medio_pago": { "type": "string" },
+    "id_banco": { "type": "integer" },
+    "nombre_banco": { "type": "string" },
+    "fecha_recepcion": { "type": "string" },
+    "fecha_vencimiento": { "type": "string" },
+    "fecha_creacion": { "type": "string" },
+    "rut_emisor": { "type": "string" },
+    "numero_referencia": { "type": "string" },
+    "id_caja": { "type": "integer" },
+    "id_sucursal": { "type": "integer" },
+    "nombre_sucursal": { "type": "string" },
+    "folio": {"anyOf": [{"type": "string"}, {"type": "number"}]}
+  },
+  "additionalProperties": false
+}
+

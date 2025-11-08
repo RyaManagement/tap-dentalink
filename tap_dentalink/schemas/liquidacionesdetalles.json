@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "id_liquidacion": {
+      "type": "integer"
+    },
+    "id_sucursal": {
+      "type": "integer"
+    },
+    "nombre_sucursal": {
+      "type": "string"
+    },
+    "id_dentista": {
+      "type": "integer"
+    },
+    "nombre_dentista": {
+      "type": "string"
+    },
+    "id_paciente": {
+      "type": "integer"
+    },
+    "nombre_paciente": {
+      "type": "string"
+    },
+    "id_tratamiento": {
+      "type": "integer"
+    },
+    "nombre_tratamiento": {
+      "type": "string"
+    },
+    "id_prestacion": {
+      "type": "integer"
+    },
+    "nombre_prestacion": {
+      "type": "string"
+    },
+    "medio_pago": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "monto": {
+      "type": "number"
+    },
+    "total": {
+      "type": "number"
+    },
+    "estado_liquidacion": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

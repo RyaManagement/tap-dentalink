@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Convenio",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "nombre": { "type": "string" },
+    "id_empresa": { "type": "integer" },
+    "nombre_empresa": { "type": "string" },
+    "contacto_empresa": { "type": "string" },
+    "rut_empresa": { "type": "string" },
+    "telefono_empresa_1": { "type": "string" },
+    "telefono_empresa_2": { "type": "string" },
+    "direccion_empresa": { "type": "string" },
+    "comuna_empresa": { "type": "string" },
+    "ciudad_empresa": { "type": "string" },
+    "mail_empresa": { "type": "string" },
+    "fecha_afiliacion": { "type": "string" },
+    "id_arancel": { "type": "integer" },
+    "nombre_arancel": { "type": "string" },
+    "observacion": { "type": "string" },
+    "descuento": { "type": "number" },
+    "ajuste": { "type": "number" },
+    "descuentos_por_planilla": { "type": "boolean" },
+    "descuentos_laboratorios": { "type": "boolean" },
+    "descuentos_otros": { "type": "boolean" },
+    "habilitado": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}
+
