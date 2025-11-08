@@ -8,6 +8,8 @@ from singer_sdk import typing as th  # JSON schema typing helpers
 # TODO: Import your custom stream types here:
 from tap_dentalink import streams
 
+from datetime import date
+
 
 class TapDentalink(Tap):
     """Dentalink tap class."""
@@ -37,6 +39,20 @@ class TapDentalink(Tap):
             title="Backoff retries",
             default=10,
             description="The number of backoff retries",
+        ),
+        th.Property(
+            "start_date",
+            th.DateType(),
+            required=True,
+            title="Start Date",
+            description="Initial date to start extracting data from",
+        ),
+        th.Property(
+            "end_date",
+            th.DateType(),
+            title="End Date",
+            default=None,
+            description="End date for records to extract",
         ),
     ).to_dict()
 

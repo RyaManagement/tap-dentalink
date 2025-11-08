@@ -22,7 +22,7 @@ plugins:
     settings:
     - name: auth_token
       label: Auth token
-      description: The authorization token
+      description: The authorization token (ApiKEY)
       sensitive: true
 
     - name: api_url
@@ -30,17 +30,26 @@ plugins:
       description: The API URL
 
     - name: backoff_retries
+      label: Backoff Retries
+      description: Number of backoff retries
+
+    - name: start_date
       label: Start Date
       description: Initial date to start extracting data from
+
+    - name: end_date
+      label: End Date
+      description: End date for records to extract
 
 
     # TODO: Declare required settings here:
     settings_group_validation:
-    - [auto_token]
+    - [auth_token]
 
     # TODO: Declare default configuration values here:
     config:
       backoff_retries: 10
+      api_url: "https://api.dentalink.healthatom.com/api"
 
   loaders:
   - name: target-jsonl

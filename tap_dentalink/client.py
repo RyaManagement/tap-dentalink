@@ -71,8 +71,12 @@ class DentalinkStream(RESTStream):
         if next_page_token:
             cursor = pattern.search(next_page_token).groups()[0]
             params["cursor"] = cursor
+        else:
+            params.update(self.get_query_params(context))
         return params
 
+    def get_query_params(self, context):
+        return {}
 
     def parse_response(self, response: requests.Response) -> t.Iterable[dict]:
         """Parse the response and return an iterator of result records.
