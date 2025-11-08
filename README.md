@@ -1,81 +1,115 @@
 # tap-dentalink
 
-`tap-dentalink` is a Singer tap for Dentalink.
+`tap-dentalink` es un tap de Singer para Healthatom Dentalink.
 
-Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
+Un proyecto de [R&A Management](https://ryamanagement.com/).
+Síguenos en nuestra página de Instagram [@rya_management](https://www.instagram.com/rya_management/).
 
-<!--
+Construido con [Meltano Tap SDK](https://sdk.meltano.com) para Taps de Singer.
+Inspirado en [Dentalink Client](https://github.com/Keviinplz/dentalink) por @Keviinplz
 
-Developer TODO: Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPI repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
+## Qué puede hacer el usuario con este tap
 
-## Installation
+Con `tap-dentalink` puedes extraer los datos de Dentalink y volcarlos a **cualquier formato soportado por los taps de Singer**, tales como:
 
-Install from PyPI:
+- **CSV** – para análisis rápido en hojas de cálculo o herramientas de BI.
+- **JSON / JSONL** – ideal para procesamiento programático o carga en data lakes.
+- **PostgreSQL** – inserta directamente los datos en una base de datos relacional para consultas avanzadas.
+- **Otros destinos compatibles** – por ejemplo, Snowflake, BigQuery, Redshift, etc., mediante los *targets* de Singer correspondientes.
+
+En resumen, el tap permite **bajar los datos de Dentalink** y enviarlos a la herramienta o almacenamiento que prefieras, facilitando la integración de tu información clínica con pipelines de ELT, análisis de datos o visualizaciones personalizadas.
+
+## Instalación
+
+Instalar desde Github con pip/pipx:
 
 ```bash
-pipx install tap-dentalink
+pipx install git+https://github.com/RyaManagement/tap-dentalink.git@main
 ```
 
-Install from GitHub:
+## Configuracion
 
-```bash
-pipx install git+https://github.com/ORG_NAME/tap-dentalink.git@main
-```
+### Configuraciones disponibles
 
--->
+- **Nombre:** auth_token  
+  **Tipo:** ['string']  
+  **Variable de Entorno:** TAP_DENTALINK_AUTH_TOKEN  
+  **Descripción:** Token de autenticación para acceder a la API de Dentalink.
 
-## Configuration
+- **Nombre:** api_url  
+  **Tipo:** ['string', 'null']  
+  **Variable de Entorno:** TAP_DENTALINK_API_URL  
+  **Descripción:** URL base de la API de Dentalink. Si no se especifica, se usará la URL por defecto.
 
-### Accepted Config Options
+- **Nombre:** backoff_retries  
+  **Tipo:** ['integer', 'null']  
+  **Variable de Entorno:** TAP_DENTALINK_BACKOFF_RETRIES  
+  **Descripción:** Número de reintentos en caso de fallos temporales en la API.
 
-<!--
-Developer TODO: Provide a list of config options accepted by the tap.
+- **Nombre:** start_date  
+  **Tipo:** ['string']  
+  **Variable de Entorno:** TAP_DENTALINK_START_DATE  
+  **Descripción:** Fecha inicial para la extracción de datos (formato ISO YYYY-MM-DD).
 
-This section can be created by copy-pasting the CLI output from:
+- **Nombre:** end_date  
+  **Tipo:** ['string', 'null']  
+  **Variable de Entorno:** TAP_DENTALINK_END_DATE  
+  **Descripción:** Fecha final para la extracción de datos (formato ISO YYYY-MM-DD). Opcional.
 
-```
-tap-dentalink --about --format=markdown
-```
--->
 
-A full list of supported settings and capabilities for this
-tap is available by running:
+La lista completa de configuraciones disponibles para este tap se obtiene ejecutando:
 
 ```bash
 tap-dentalink --about
 ```
 
-### Configure using environment variables
+El tap se puede configurar a través de un archivo ´config.json´ o a través de variables de entorno.
 
-This Singer tap will automatically import any environment variables within the working directory's
-`.env` if the `--config=ENV` is provided, such that config values will be considered if a matching
-environment variable is set either in the terminal context or in the `.env` file.
+## Uso
 
-### Source Authentication and Authorization
+Una vez configurado 
+Es posible ejecutar este tap directamente con `tap-dentalink` o como parte de un pipeline usando [Meltano](https://meltano.com/).
 
-<!--
-Developer TODO: If your tap requires special access on the source system, or any special authentication requirements, provide those here.
--->
+### Ejecutando el tap directamente
 
-## Usage
-
-You can easily run `tap-dentalink` by itself or in a pipeline using [Meltano](https://meltano.com/).
-
-### Executing the Tap Directly
+Extraer información
 
 ```bash
 tap-dentalink --version
 tap-dentalink --help
-tap-dentalink --config CONFIG --discover > ./catalog.json
 ```
 
-## Developer Resources
+Extraer datos de la API de Dentalink a través del tap:
 
-Follow these instructions to contribute to this project.
+```bash
+tap-dentalink --config CONFIG > datos_dentalink.singer.json
+```
 
-### Initialize your Development Environment
+Este archivo de datos se puede transformar a otros formatos utilizando otros Singer taps.
 
-Prerequisites:
+Se puede utilizar un catálogo para con el fin de elegir recursos para extraer:
+
+```bash
+tap-dentalink --config config.json --discover > catalog.json
+tap-dentalink --config config.json --catalog catalog.json
+```
+En este caso, se puede modificar la opción "selected" de cada stream (´true´ o ´false´) para incluir o excluir un stream.
+
+Es posible redirigir las salida de un tap en la entrada de otro. Por ejemplo, el siguiente comando redirige el contenido
+de la API de Dentalink a un archivo CSV a través de [tap-csv](https://github.com/MeltanoLabs/tap-csv):
+
+```bash
+# Extraer datos y enviarlos a target-csv
+tap-dentalink --config config.json --catalog catalog.json | target-csv --output ./csv_output
+```
+
+## Instrucciones para desarrolladores
+
+Sigue las siguientes instrucciones para contribuir a este proyecto.
+
+### Inicializa un entorno de desarrollo
+
+Prerequisitos:
 
 - Python 3.9+
 - [uv](https://docs.astral.sh/uv/)
@@ -84,53 +118,45 @@ Prerequisites:
 uv sync
 ```
 
-### Create and Run Tests
+### Crear y ejecutar tests
 
-Create tests within the `tests` subfolder and
-then run:
+Crea tests demtro del subdirectorio `tests` y luego ejecuta:
 
 ```bash
 uv run pytest
 ```
 
-You can also test the `tap-dentalink` CLI interface directly using `uv run`:
+Tambien puedes probar la interfaz de commandos del tap `tap-dentalink` directamente utilizando `uv run`:
 
 ```bash
 uv run tap-dentalink --help
 ```
 
-### Testing with [Meltano](https://www.meltano.com)
+### Ejecución con [Meltano](https://www.meltano.com)
 
-_**Note:** This tap will work in any Singer environment and does not require Meltano.
-Examples here are for convenience and to streamline end-to-end orchestration scenarios._
+**Nota:** 
+Este tap funciona con cualquier entorno de Singer y no require Meltano para su uso. Los siguientes ejemplos muestran maneras convenientes de realizar orquestación end-to-end.
 
-<!--
-Developer TODO:
-Your project comes with a custom `meltano.yml` project file already created. Open the `meltano.yml` and follow any "TODO" items listed in
-the file.
--->
-
-Next, install Meltano (if you haven't already) and any needed plugins:
+Instala Meltano (si aún no lo realizas) y las dependencias de plugins:
 
 ```bash
-# Install meltano
+# Instalar meltano
 pipx install meltano
-# Initialize meltano within this directory
+# Inicializar meltano dentro de este directorio
 cd tap-dentalink
 meltano install
 ```
 
-Now you can test and orchestrate using Meltano:
+Ahora puedes orquestar con Meltano:
 
 ```bash
-# Test invocation:
+# Invocar meltano:
 meltano invoke tap-dentalink --version
 
-# OR run a test ELT pipeline:
+# O ejecutar un pipeline ELT de prueba:
 meltano run tap-dentalink target-jsonl
 ```
 
-### SDK Dev Guide
+### Guia de desarrollo SDK
 
-See the [dev guide](https://sdk.meltano.com/en/latest/dev_guide.html) for more instructions on how to use the SDK to
-develop your own taps and targets.
+Visita la [guía de desarrollo](https://sdk.meltano.com/en/latest/dev_guide.html) para más instrucciones de como utilizar el SDK y desarrollar tus propios taps y targets.
